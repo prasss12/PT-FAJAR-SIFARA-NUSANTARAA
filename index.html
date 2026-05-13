@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>PT FAJAR SIFARA NUSANTARA | Solusi Desain Web & Roblox Map</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fbfcff;
+      color: #1a2b3e;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    h1, h2, h3, h4, .logo, .nav-links a, .btn {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #eef2fa;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2c7da0;
+      border-radius: 12px;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+      padding: 14px 0;
+      transition: all 0.3s ease;
+    }
+    .nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #f0f4f9;
+      padding: 4px;
+      transition: transform 0.3s ease;
+    }
+    .logo-img:hover {
+      transform: scale(1.05);
+    }
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #1E4A6E, #2B7A4B);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.2;
+    }
+    .logo-text span {
+      background: none;
+      color: #2c7da0;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #1f3b4c;
+      transition: 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #2c7da0;
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    .nav-links a:hover {
+      color: #2c7da0;
+    }
+    .btn-contact-nav {
+      background: #1f3b4c;
+      color: white !important;
+      padding: 8px 22px;
+      border-radius: 40px;
+    }
+    .btn-contact-nav::after {
+      display: none;
+    }
+    .btn-contact-nav:hover {
+      background: #2c7da0;
+      transform: scale(0.97);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 60px 0 70px;
+      background: linear-gradient(105deg, #ffffff 0%, #f4f9fe 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(44,125,160,0.05) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-left {
+      flex: 1.2;
+    }
+    .hero-right {
+      flex: 0.9;
+      text-align: center;
+    }
+    .badge {
+      background: #e6f4ea;
+      color: #1f6e43;
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; transform: scale(0.98); }
+    }
+    .hero-left h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #0e2e40;
+    }
+    .hero-left p {
+      font-size: 1.2rem;
+      color: #3a5468;
+      margin-bottom: 32px;
+      max-width: 90%;
+    }
+    .btn-group {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: #2c7da0;
+      color: white;
+      padding: 12px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 8px 18px rgba(44,125,160,0.2);
+    }
+    .btn-primary:hover {
+      background: #1f5e7a;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(44,125,160,0.3);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #2c7da0;
+      color: #2c7da0;
+      padding: 10px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn-outline:hover {
+      background: #2c7da0;
+      color: white;
+      transform: translateY(-2px);
+    }
+    .hero-img {
+      max-width: 100%;
+      border-radius: 48px;
+      filter: drop-shadow(0 20px 30px rgba(0,0,0,0.05));
+      transition: transform 0.5s ease;
+    }
+    .hero-img:hover {
+      transform: scale(1.02);
+    }
+
+    /* About Section */
+    .about {
+      padding: 80px 0;
+      background: #ffffff;
+    }
+    .about-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: center;
+    }
+    .about-left {
+      flex: 1;
+    }
+    .about-right {
+      flex: 1;
+    }
+    .about-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #2c7da0, #2B7A4B);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .about-icon i {
+      font-size: 2rem;
+      color: white;
+    }
+    .about-left h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0e2e40;
+      margin-bottom: 16px;
+    }
+    .about-desc {
+      color: #4a6278;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .about-stats-mini {
+      display: flex;
+      gap: 2rem;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+    .stat-mini {
+      text-align: center;
+    }
+    .stat-mini .number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #2c7da0;
+    }
+    .stat-mini .label {
+      font-size: 0.85rem;
+      color: #6b8aa3;
+    }
+    .about-right {
+      background: linear-gradient(135deg, #f0f6fc, #e8f0f8);
+      border-radius: 40px;
+      padding: 40px;
+    }
+    .visi-misi h4 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1f3b4c;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .visi-misi h4 i {
+      color: #2c7da0;
+    }
+    .visi-misi p {
+      color: #3a5468;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .value-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+    .value-list li {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .value-list li i {
+      color: #2B7A4B;
+      font-size: 1.1rem;
+    }
+
+    /* layanan */
+    .section-title {
+      text-align: center;
+      font-size: 2.3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #0e2e40;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #2c7da0, #2B7A4B);
+      border-radius: 3px;
+    }
+    .section-sub {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 48px;
+      color: #4a6278;
+    }
+    .services {
+      padding: 80px 0;
+      background: #fff;
+    }
+    .cards {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: white;
+      border-radius: 36px;
+      padding: 36px 28px;
+      flex: 1 1 280px;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.07);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(44,125,160,0.1);
+      text-align: left;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-12px);
+      border-color: #2c7da0;
+      box-shadow: 0 30px 45px -12px rgba(44,125,160,0.2);
+    }
+    .card i {
+      font-size: 3rem;
+      color: #2c7da0;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+    .card:hover i {
+      transform: scale(1.1);
+    }
+    .card h3 {
+      font-size: 1.7rem;
+      margin-bottom: 16px;
+    }
+    .card p {
+      color: #4a5c6c;
+      margin-bottom: 20px;
+    }
+    .feature-list {
+      list-style: none;
+      margin: 16px 0 24px;
+    }
+    .feature-list li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: #2c3e4e;
+    }
+    .feature-list li i {
+      font-size: 1rem;
+      color: #2c7da0;
+      margin: 0;
+      width: 20px;
+    }
+    .card .btn-small {
+      background: none;
+      border: 1px solid #2c7da0;
+      padding: 8px 20px;
+      border-radius: 30px;
+      color: #2c7da0;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      margin-top: 8px;
+    }
+    .card .btn-small:hover {
+      background: #2c7da0;
+      color: white;
+      transform: translateX(5px);
+    }
+    .note-exclude {
+      font-size: 0.75rem;
+      color: #8ba0ae;
+      margin-top: 16px;
+      border-top: 1px dashed #e2e8f0;
+      padding-top: 12px;
+    }
+
+    /* brands section */
+    .brands {
+      background: #f0f6fc;
+      padding: 80px 0;
+    }
+    .brand-showcase {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 20px;
+    }
+    .brand-item {
+      background: white;
+      border-radius: 48px;
+      padding: 32px 40px;
+      text-align: center;
+      min-width: 260px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+      cursor: pointer;
+    }
+    .brand-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 24px 36px rgba(0,0,0,0.12);
+    }
+    .brand-logo {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #fef9f0, #fff);
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+    .brand-item:hover .brand-logo {
+      transform: scale(1.05);
+    }
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .brand-item h4 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin: 12px 0 6px;
+      color: #1f3b4c;
+    }
+    .brand-item p {
+      font-weight: 500;
+      color: #2c7da0;
+    }
+    .ig-handle {
+      font-size: 0.9rem;
+      color: #3a5a6e;
+      margin-top: 10px;
+      font-family: monospace;
+    }
+
+    /* stats */
+    .stats {
+      padding: 60px 0;
+      background: white;
+    }
+    .stat-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      text-align: center;
+    }
+    .stat-item {
+      flex: 1;
+      min-width: 150px;
+      transition: transform 0.3s ease;
+    }
+    .stat-item:hover {
+      transform: translateY(-5px);
+    }
+    .stat-item h2 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: #2c7da0;
+    }
+    /* contact */
+    .contact {
+      background: linear-gradient(120deg, #eef4fa, #ffffff);
+      padding: 70px 0;
+    }
+    .contact-box {
+      background: linear-gradient(135deg, #1f2f3a, #1a2a35);
+      border-radius: 48px;
+      padding: 48px 40px;
+      color: white;
+      text-align: center;
+      box-shadow: 0 18px 30px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+    .contact-box:hover {
+      transform: translateY(-5px);
+    }
+    .contact-number {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      background: rgba(255,255,255,0.15);
+      display: inline-block;
+      padding: 10px 28px;
+      border-radius: 60px;
+      margin: 20px 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .contact-number:hover {
+      background: rgba(255,255,255,0.25);
+      transform: scale(1.02);
+    }
+    footer {
+      background: #0b202b;
+      color: #bcd0df;
+      padding: 40px 0;
+      text-align: center;
+    }
+    @media (max-width: 900px) {
+      .container { padding: 0 24px; }
+      .hero-left h1 { font-size: 2.4rem; }
+      .nav-flex { flex-direction: column; }
+      .nav-links { justify-content: center; }
+      .contact-number { font-size: 1.5rem; }
+      .card { text-align: center; }
+      .feature-list li { justify-content: center; }
+      .stat-item { min-width: 120px; }
+      .about-grid { flex-direction: column; }
+    }
+    @media (max-width: 600px) {
+      .hero-left h1 { font-size: 2rem; }
+      .section-title { font-size: 1.9rem; }
+      .btn-group a { width: 100%; text-align: center; }
+      .brand-item { padding: 24px 28px; min-width: 220px; }
+      .contact-box { padding: 32px 24px; }
+    }
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-up.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* loading animation */
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+    .preloader.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .loader {
+      width: 50px;
+      height: 50px;
+      border: 4px solid #eef2fa;
+      border-top: 4px solid #2c7da0;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+  <div class="loader"></div>
+</div>
+
+<nav class="navbar">
+  <div class="container nav-flex">
+    <div class="logo-area">
+      <img src="assets/logo-pt.png" alt="Logo PT FAJAR SIFARA NUSANTARA" class="logo-img" onerror="this.onerror=null; this.src='https://placehold.co/200x200/2c7da0/white?text=FS'">
+      <div class="logo-text">PT FAJAR SIFARA <span>NUSANTARA</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="#">Beranda</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#layanan">Layanan</a>
+      <a href="#brands">Portofolio</a>
+      <a href="#kontak" class="btn-contact-nav">Hubungi Kami</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-left fade-up">
+        <div class="badge"><i class="fas fa-crown"></i> MITRA DESAIN KREATIF</div>
+        <h1>Desain Website & Map Roblox</h1>
+        <p>PT FAJAR SIFARA NUSANTARA | Menyediakan layanan jasa pembuatan WEBSITE & MAP ROBLOX profesional dan berkualitas.</p>
+        <div class="btn-group">
+          <a href="#kontak" class="btn-primary"><i class="fas fa-paper-plane"></i> Konsultasi Gratis</a>
+          <a href="#layanan" class="btn-outline">Lihat Layanan</a>
+        </div>
+      </div>
+      <div class="hero-right fade-up">
+        <img src="assets/hero-illustration.png" alt="Creative Digital Studio" class="hero-img" onerror="this.onerror=null; this.src='https://placehold.co/500x400/DFF2EB/2c7da0?text=UI+%26+Roblox+Creation'">
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION - TENTANG KAMI / TENTANG PT -->
+  <section id="tentang" class="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-left fade-up">
+          <div class="about-icon">
+            <i class="fas fa-building"></i>
+          </div>
+          <h3>Tentang PT FAJAR SIFARA NUSANTARA</h3>
+          <p class="about-desc">
+            PT FAJAR SIFARA NUSANTARA adalah perusahaan yang bergerak di bidang jasa pembuatan
+            desain website modern dan pengembangan map di platform Roblox. 
+            Didirikan pada tahun 2020, kami telah dipercaya oleh berbagai brand untuk mewujudkan 
+            visi digital mereka menjadi kenyataan.
+          </p>
+          <p class="about-desc">
+            Kami percaya bahwa setiap bisnis memiliki cerita unik yang perlu disampaikan melalui tampilan 
+            visual yang menarik dan fungsional. Dengan tim desainer dan developer berpengalaman, kami 
+            siap membantu Anda membangun kehadiran digital yang kuat.
+          </p>
+          <div class="about-stats-mini">
+            <div class="stat-mini">
+              <div class="number">4+</div>
+              <div class="label">Tahun Pengalaman</div>
+            </div>
+            <div class="stat-mini">
+              <div class="number">100+</div>
+              <div class="label">Klien Puas</div>
+            </div>
+            <div class="stat-mini">
+              <div class="number">52+</div>
+              <div class="label">Website Tercipta</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-right fade-up">
+          <div class="visi-misi">
+            <h4><i class="fas fa-eye"></i> Visi</h4>
+            <p>Menjadi mitra terpercaya dalam transformasi digital bisnis di Indonesia melalui desain yang inovatif dan solusi kreatif yang berdampak.</p>
+            
+            <h4><i class="fas fa-bullseye"></i> Misi</h4>
+            <p>Memberikan layanan desain website berkualitas, serta menghadirkan pengalaman imersif melalui map Roblox yang interaktif dan menghibur.</p>
+            
+            <ul class="value-list">
+              <li><i class="fas fa-check-circle"></i> Kreativitas Tanpa Batas</li>
+              <li><i class="fas fa-check-circle"></i> Kepuasan Klien Prioritas Utama</li>
+              <li><i class="fas fa-check-circle"></i> Inovasi Berkelanjutan</li>
+              <li><i class="fas fa-check-circle"></i> Tepat Waktu & Profesional</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="layanan" class="services">
+    <div class="container">
+      <h2 class="section-title fade-up">Layanan Unggulan Kami</h2>
+      <p class="section-sub fade-up">Solusi kreatif tanpa beban teknis berlebih. Kami desain, Anda fokus pada bisnis.</p>
+      <div class="cards">
+        <div class="card fade-up">
+          <i class="fas fa-palette"></i>
+          <h3>Desain Website</h3>
+          <p>Kami merancang tampilan website modern & interaktif sesuai identitas brand Anda. Layanan murni desain + fitur-fitur tertentu.</p>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> UI/UX Desain responsif (semua device)</li>
+            <li><i class="fas fa-check-circle"></i> Fitur interaktif (animasi, form, galeri)</li>
+            <li><i class="fas fa-check-circle"></i> Landing page / Company profile / E-commerce simple</li>
+            <li><i class="fas fa-check-circle"></i> Integrasi media sosial & custom fitur</li>
+          </ul>
+          <div class="note-exclude">
+            <i class="fas fa-info-circle"></i> Tidak termasuk: hosting, domain, SEO, dan maintenance backend lanjutan. Kami murni jasa desain & integrasi front-end.
+          </div>
+          <a href="#kontak" class="btn-small">Request Desain →</a>
+        </div>
+        <div class="card fade-up">
+          <i class="fas fa-gamepad"></i>
+          <h3>Pembuatan Map Roblox</h3>
+          <p>Buat pengalaman bermain yang tak terlupakan dengan map Roblox custom. Desain world, mekanik unik, dan efek visual kekinian.</p>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> Map interaktif & immersive</li>
+            <li><i class="fas fa-check-circle"></i> Fitur gameplay custom (leaderboard, checkpoint)</li>
+            <li><i class="fas fa-check-circle"></i> Dekorasi 3D & environment design</li>
+            <li><i class="fas fa-check-circle"></i> Siap pakai atau integrasi dengan game kamu</li>
+          </ul>
+          <div class="note-exclude">
+            <i class="fas fa-star"></i> Cocok untuk event brand, monetisasi, atau hiburan komunitas.
+          </div>
+          <a href="#kontak" class="btn-small">Diskusi Map Roblox →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="brands" class="brands">
+    <div class="container">
+      <h2 class="section-title fade-up">Brands Handled</h2>
+      <p class="section-sub fade-up">BRAND PT FAJAR SIFARA NUSANTARA.</p>
+      <div class="brand-showcase">
+        <div class="brand-item fade-up">
+          <div class="brand-logo">
+            <img src="assets/syvarix-logo.png" alt="Logo Syvarix Parfum" onerror="this.onerror=null; this.src='https://placehold.co/300x300/f9e0c0/8b5a2b?text=Syvarix'">
+          </div>
+          <h4>Syvarix</h4>
+          <p>Parfum</p>
+          <div class="ig-handle"><i class="fab fa-instagram"></i> @syvarix.id</div>
+          <small style="display:block; margin-top:12px;">PT FAJAR SIFARA NUSANTARA</small>
+        </div>
+        <div class="brand-item fade-up">
+          <div class="brand-logo">
+            <img src="assets/nyozz-logo.png" alt="Logo Nyozz Minuman Serbuk" onerror="this.onerror=null; this.src='https://placehold.co/300x300/F4A261/fff?text=Nyozz'">
+          </div>
+          <h4>Nyozz</h4>
+          <p>Minuman Serbuk</p>
+          <div class="ig-handle"><i class="fab fa-instagram"></i> nyozz_id</div>
+          <small style="display:block; margin-top:12px;">PT FAJAR SIFARA NUSANTARA</small>
+        </div>
+      </div>
+      <div style="margin-top: 40px; text-align: center;" class="fade-up">
+        <p style="font-weight: 500;">✨ COOMING SOON ✨</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container">
+      <div class="stat-grid">
+        <div class="stat-item fade-up"><h2 id="counterWeb">0</h2><p>Website DidESain</p></div>
+        <div class="stat-item fade-up"><h2 id="counterRoblox">0</h2><p>Map Roblox + Pengalaman</p></div>
+        <div class="stat-item fade-up"><h2 id="counterClients">0</h2><p>Klien Puas</p></div>
+        <div class="stat-item fade-up"><h2>24/7</h2><p>Konsultasi Kreatif</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak" class="contact">
+    <div class="container">
+      <div class="contact-box fade-up">
+        <i class="fas fa-phone-alt" style="font-size: 2rem; opacity: 0.9;"></i>
+        <h2>Hubungi Kami</h2>
+        <p>Wujudkan desain website bisnismu atau map Roblox terbaik bersama tim PT FAJAR SIFARA NUSANTARA.</p>
+        <div class="contact-number" id="phoneNumberElement">
+          <i class="fab fa-whatsapp"></i> 0831-3012-5535
+        </div>
+        <p style="margin-bottom: 20px;">Klik nomor untuk salin / langsung chat via WhatsApp</p>
+        <a href="https://wa.me/6283130125535?text=Halo%20PT%20FAJAR%20SIFARA%20NUSANTARA,%20saya%20tertarik%20dengan%20layanan%20Desain%20Website%20dan%20Roblox%20Map" class="btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Chat WhatsApp</a>
+        <p style="margin-top: 28px; font-size: 0.85rem;">📞 PT. FAJAR SIFARA NUSANTARA - Konsultasi Desain & Map Roblox</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2020 PT FAJAR SIFARA NUSANTARA | Jasa Desain Website (Tanpa Hosting/SEO) & Pembuatan Map Roblox | <i class="fas fa-globe"></i> Kreativitas Tanpa Batas</p>
+    <p style="margin-top: 10px; font-size: 0.8rem;"><i class="fas fa-certificate"></i> Berpengalaman sejak 2020 | Terpercaya oleh berbagai brand</p>
+  </div>
+</footer>
+
+<script>
+  // Preloader
+  window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    setTimeout(() => {
+      preloader.classList.add('fade-out');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 500);
+    }, 500);
+  });
+
+  // Fade up Animation
+  const fadeElements = document.querySelectorAll('.fade-up');
+  function checkFade() {
+    fadeElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 80) {
+        el.classList.add('appear');
+      }
+    });
+  }
+  window.addEventListener('scroll', checkFade);
+  window.addEventListener('load', checkFade);
+
+  // Counter Animasi
+  function animateCounter(elementId, start, end, duration) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const currentValue = Math.floor(progress * (end - start) + start);
+      element.innerText = currentValue;
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      } else {
+        element.innerText = end;
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
+
+  const statSection = document.querySelector('.stats');
+  let counted = false;
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !counted) {
+        counted = true;
+        animateCounter('counterWeb', 0, 52, 1300);
+        animateCounter('counterRoblox', 0, 31, 1400);
+        animateCounter('counterClients', 0, 128, 1500);
+      }
+    });
+  }, { threshold: 0.3 });
+  if (statSection) counterObserver.observe(statSection);
+
+  // Smooth scroll anchor
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === "#" || targetId === "") return;
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Copy nomor telepon interaktif
+  const phoneDiv = document.getElementById('phoneNumberElement');
+  if (phoneDiv) {
+    phoneDiv.addEventListener('click', () => {
+      const rawNumber = '083130125535';
+      navigator.clipboard.writeText(rawNumber).then(() => {
+        const originalHTML = phoneDiv.innerHTML;
+        phoneDiv.innerHTML = '<i class="fas fa-check-circle"></i> Nomor Tersalin!';
+        setTimeout(() => {
+          phoneDiv.innerHTML = originalHTML;
+        }, 1800);
+      }).catch(() => {
+        alert('Salin manual: 0831-3012-5535');
+      });
+    });
+    phoneDiv.style.cursor = 'pointer';
+    phoneDiv.title = 'Klik untuk salin nomor telepon';
+  }
+
+  // Efek hover brand dan card
+  const brandItems = document.querySelectorAll('.brand-item');
+  brandItems.forEach(item => {
+    item.addEventListener('mouseenter', () => { 
+      item.style.transform = 'translateY(-8px) scale(1.02)'; 
+    });
+    item.addEventListener('mouseleave', () => { 
+      item.style.transform = 'translateY(0) scale(1)'; 
+    });
+  });
+
+  // Navbar scroll effect
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    const currentScroll = window.pageYOffset;
+    if (currentScroll > 100) {
+      navbar.style.padding = '10px 0';
+      navbar.style.boxShadow = '0 4px 24px rgba(0,0,0,0.1)';
+    } else {
+      navbar.style.padding = '14px 0';
+      navbar.style.boxShadow = '0 4px 24px rgba(0,0,0,0.05)';
+    }
+    lastScroll = currentScroll;
+  });
+</script>
+
+</body>
+</html>
